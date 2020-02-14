@@ -78,11 +78,14 @@ class FirstFrame(wx.Frame):
     def __init__(self, *args, **kwargs):
         # print(kwargs)
         tmp_kwargs = {}
-        header_message, choices, checkbox_names, checkbox_values, buttons = [], [], [], [], []
+        title, header_message, choices, checkbox_names, checkbox_values, buttons = "", "", [], [], [], []
         self.choices, self.checkbox_names, self.checkbox_values, self.button_objects = [], [], [], []
-        self.header_message = ''
+        self.title = ""
+        self.header_message = ""
         for (key, value), kwarg in zip(kwargs.items(), kwargs):
-            if key == 'header_message':
+            if key == 'title':
+                self.title = str(value)
+            elif key == 'header_message':
                 header_message = str(value)
             elif key == 'choices':
                 for v in value:
@@ -173,7 +176,7 @@ class FirstFrame(wx.Frame):
         self.Bind(wx.EVT_ICONIZE, self.on_minimize)
 
     def __set_properties(self):
-        self.SetTitle("Import Project Datasheet")
+        self.SetTitle(self.title)
         _icon = wx.NullIcon
         _icon.CopyFromBitmap(wx.Bitmap("SAV-Social-Profile.jpg", wx.BITMAP_TYPE_ANY))
         self.SetIcon(_icon)
@@ -265,6 +268,7 @@ class FirstFrame(wx.Frame):
         print(f"choice: {self.choices.GetSelection()}")
         for check_name in self.checkbox_names:
             print(f"Checkbox {check_name}: {check_name.GetValue()}")
+            print(self.import_files)
         event.Skip()
 
     def on_cancel_program(self, event):  # event handler
