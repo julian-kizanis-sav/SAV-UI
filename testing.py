@@ -2,7 +2,7 @@ import sav
 import wx
 
 
-class SavFrame(sav.FirstFrame):
+class SavFrame(sav.SavFrame):
     def button_event_handler(self, event):  # event handler
         print(f"Button Handler! for {event.GetEventObject().GetLabel()}")
         print(f"choice: {self.choices.GetSelection()}")

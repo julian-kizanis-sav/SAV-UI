@@ -72,7 +72,7 @@ class FileDropTarget(wx.FileDropTarget):
         return True
 
 
-class FirstFrame(wx.Frame):
+class SavFrame(wx.Frame):
     """This object is the main window"""
     # def __init__(self, header_message, choices, checkbox_names, checkbox_values, buttons, *args, **kwds):
     def __init__(self, *args, **kwargs):
@@ -526,12 +526,12 @@ class MyApp(wx.App):
         # self.frame = FirstFrame(None, wx.ID_ANY, "Default Header Message", ["Choice 0", "Choice 1", "Choice 2"],
         #                         ["Checkbox 0", "Checkbox 1", "Checkbox 2"], [True, False, True],
         #                         ["Continue", "Do Something", "Clear", "Cancel"])
-        self.frame = FirstFrame(None, wx.ID_ANY, "",
-                                header_message="This is a header!",
-                                choices=['choice 0', 'choice 1', 'choice 2'],
-                                checkbox_names=['check box 0', 'check box 1', 'check box 2'],
-                                checkbox_values=[1, 0, True],
-                                buttons=['button 0', 'button 1', 'clear', 'cancel', 'button 4'])
+        self.frame = SavFrame(None, wx.ID_ANY, "",
+                              header_message="This is a header!",
+                              choices=['choice 0', 'choice 1', 'choice 2'],
+                              checkbox_names=['check box 0', 'check box 1', 'check box 2'],
+                              checkbox_values=[1, 0, True],
+                              buttons=['button 0', 'button 1', 'clear', 'cancel', 'button 4'])
 
         self.SetTopWindow(self.frame)
         self.frame.Show()
